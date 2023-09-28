@@ -5,6 +5,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 
+
 import { ActivitiesListComponent } from './activities-list/activities-list.component';
 
 @NgModule({
