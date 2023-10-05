@@ -29,4 +29,12 @@ public class ActivityService {
 		return activityRepository.save(activity);
 	}
 
+	public List<Activity> listByUser(String email){
+		Optional<User> user = userRepository.findByEmail(email);
+		if(user.isPresent()) {
+			return activityRepository.findByUser(user.get());
+		}
+		return null;
+	}
+
 }

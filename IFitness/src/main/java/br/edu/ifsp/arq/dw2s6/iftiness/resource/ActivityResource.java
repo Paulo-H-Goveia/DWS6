@@ -55,6 +55,16 @@ public class ActivityResource {
 	public Activity create(@Valid @RequestBody Activity activity) {
 		return activityService.save(activity);
 	}
+
+	@GetMapping("/user/{email}")
+	@PreAuthorize("hasAuthority('ROLE_SEARCH_ACTIVITY') and #oauth2.hasScope('read')")
+	public ResponseEntity<List<Activity>> listByUser(@PathVariable String email){
+		List<Activity> activities = activityService.listByUser(email);
+		if(!activities.isEmpty()) {
+			return ResponseEntity.ok(activities);
+		}
+		return ResponseEntity.notFound().build();
+	}
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)

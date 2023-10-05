@@ -18,9 +18,10 @@ export class ActivitiesListComponent {
   }
 
   list(): void {
-    this.activityService.list()
+    this.activityService.listByUser()
       .then(result => {
         this.activities = result;
       });
   }
+
 }

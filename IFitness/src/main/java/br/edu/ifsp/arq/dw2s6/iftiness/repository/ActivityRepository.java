@@ -7,4 +7,6 @@ import br.edu.ifsp.arq.dw2s6.iftiness.domain.model.Activity;
 public interface ActivityRepository extends 
 	JpaRepository<Activity, Long> {
 
+		public List<Activity> findByUser(User user);
+
 }
