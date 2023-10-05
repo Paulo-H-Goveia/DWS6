@@ -33,3 +33,17 @@ import { LoginFormComponent } from './login-form/login-form.component';
   ]
 })
 export class SecurityModule { }
+
+export function tokenGetter(): any {
+  return localStorage.getItem('token');
+}
+
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['http://localhost:8080/oauth/token']
+      }
+    })
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 
@@ -11,16 +12,19 @@ export class LoginFormComponent {
 
   msg: any;
 
-  constructor(private auth: AuthService){}
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
-  login(user: string, password: string){
+  login(user: string, password: string) {
     this.auth.login(user, password)
     .then(() => {
-      this.msg = 'Sucesso';
+      this.router.navigate(['/activities']);
     })
     .catch(() => {
       this.msg = 'Usuário e/ou senha inválida!';
-    })
+    });
   }
 
 }
