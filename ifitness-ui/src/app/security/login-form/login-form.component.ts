@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,12 +9,18 @@ import { AuthService } from '../auth.service';
 })
 export class LoginFormComponent {
 
-  constructor(private auth: AuthService) { }
+  msg: any;
 
-  login(user: string, password: string): void {
-    this.auth.login(user, password);
+  constructor(private auth: AuthService){}
+
+  login(user: string, password: string){
+    this.auth.login(user, password)
+    .then(() => {
+      this.msg = 'Sucesso';
+    })
+    .catch(() => {
+      this.msg = 'Usuário e/ou senha inválida!';
+    })
   }
-
-  
 
 }

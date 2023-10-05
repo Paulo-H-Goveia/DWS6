@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TooltipModule } from 'primeng/tooltip';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-
-
+import { TooltipModule } from 'primeng/tooltip';
 import { ActivitiesListComponent } from './activities-list/activities-list.component';
 
 @NgModule({
@@ -14,8 +12,8 @@ import { ActivitiesListComponent } from './activities-list/activities-list.compo
   ],
   imports: [
     CommonModule,
-    ButtonModule,
     TableModule,
+    ButtonModule,
     TooltipModule
   ],
   exports: [

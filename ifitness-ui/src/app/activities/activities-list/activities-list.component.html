@@ -1,12 +1,22 @@
 <div class="container">
 
   <div class="p-col-12">
-    <h1>Atividades Físicas</h1>
+    <h1>{{ title }} - Atividades Físicas</h1>
   </div>
 
   <div class="p-grid">
     <div class="p-col-12">
       <p-table [value]="activities" responsiveLayout="stack" [breakpoint]="'768px'">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuário</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Distância</th>
+            <th>Duração</th>
+            <th class="col-actions-header"></th>
+          </tr>
+        </ng-template>
         <ng-template pTemplate="body" let-activity>
           <tr>
             <td>
@@ -30,8 +40,9 @@
               {{ activity.duration }}
             </td>
             <td class="col-actions">
-              <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-              <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+              <a href="" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+              <button pButton icon="pi pi-trash"
+              pTooltip="Excluir" tooltipPosition="top"></button>
             </td>
           </tr>
         </ng-template>
