@@ -8,6 +8,10 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 
+export function tokenGetter(): any {
+  return localStorage.getItem('token');
+}
+
 @NgModule({
   declarations: [
     LoginFormComponent
@@ -19,11 +23,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
     ButtonModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return '';
-        }
+        tokenGetter,
+        allowedDomains: ['localhost:8080'],
+        disallowedRoutes: ['http://localhost:8080/oauth/token']
       }
-    }),
+    })
   ],
   exports: [
     LoginFormComponent
@@ -33,17 +37,3 @@ import { LoginFormComponent } from './login-form/login-form.component';
   ]
 })
 export class SecurityModule { }
-
-export function tokenGetter(): any {
-  return localStorage.getItem('token');
-}
-
-
-    JwtModule.forRoot({
-      config: {
-        tokenGetter,
-        allowedDomains: ['localhost:8080'],
-        disallowedRoutes: ['http://localhost:8080/oauth/token']
-      }
-    })
-

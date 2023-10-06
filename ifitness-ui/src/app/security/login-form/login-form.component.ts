@@ -15,16 +15,16 @@ export class LoginFormComponent {
   constructor(
     private auth: AuthService,
     private router: Router
-  ) {}
+  ){}
 
-  login(user: string, password: string) {
+  login(user: string, password: string){
     this.auth.login(user, password)
     .then(() => {
       this.router.navigate(['/activities']);
     })
     .catch(() => {
       this.msg = 'Usuário e/ou senha inválida!';
-    });
+    })
   }
 
 }

@@ -1,16 +1,17 @@
-import { NavbarComponent } from './navbar/navbar.component';
+import { ActivityService } from './../activities/activity.service';
+import { AuthService } from './../security/auth.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AuthService } from '../security/auth.service';
-import { ActivityService } from '../activities/activity.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     NavbarComponent
   ],
   providers: [

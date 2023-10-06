@@ -1,17 +1,16 @@
+import { ActivityService } from './../activity.service';
 import { Component } from '@angular/core';
 
-import { ActivityService } from './../activity.service';
-
 @Component({
-  selector: './app-activities-list',
+  selector: 'app-activities-list',
   templateUrl: './activities-list.component.html',
   styleUrls: ['./activities-list.component.css']
 })
-
 export class ActivitiesListComponent {
+  title = 'iFitness';
   activities = [];
 
-  constructor(private activityService: ActivityService){ }
+  constructor(private activityService: ActivityService){}
 
   ngOnInit(): void {
     this.list();
@@ -21,7 +20,6 @@ export class ActivitiesListComponent {
     this.activityService.listByUser()
       .then(result => {
         this.activities = result;
-      });
+      })
   }
-
 }
